@@ -140,7 +140,7 @@ def extract_dds(data, path_or_ggpk=None):
         return data
     # Is this a reference?
     elif data[:1] == b'*':
-        path = data[1:].decode()
+        path = data.decode()
         if path_or_ggpk is None:
             raise ValueError(
                 '.dds file is a reference, but path_or_ggpk is not specified.'

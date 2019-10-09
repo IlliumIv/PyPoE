@@ -147,7 +147,7 @@ class ContextToolbar(QToolBar):
                 path = os.path.join(target_dir, node.name)
                 with open(path, 'rb') as f:
                     data = f.read()
-                if data[:4] != b'DDS ':
+                if ((data[:4] != b'DDS ') and (data[:1] != b'*')):
                     data = ggpk.extract_dds(
                         data, path_or_ggpk=node.record._container
                     )
